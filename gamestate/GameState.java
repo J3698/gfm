@@ -25,6 +25,7 @@ public abstract class GameState {
    public GameState(GamePanel gamePanel) {
       this(gamePanel, "");
       myGameMode = getClass().getName().toLowerCase();
+      myGameMode = myGameMode.substring(myGameMode.lastIndexOf(".") + 1);
    }
 
    public GameState(GamePanel gamePanel, String gameMode) {
