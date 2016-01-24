@@ -23,8 +23,8 @@ import gfm.util.Vec2;
 public class Main {
    public static int gameWidth = 640;
    public static int gameHeight = 480;
-   public static int drawWidth = 770;
-   public static int drawHeight = 580;
+   public static int drawWidth = (int) (1.2 * gameWidth);
+   public static int drawHeight = (int) (1.2 * gameHeight);
 
    public static void main(String[] args) {
       Game game = new Game("GFM", gameWidth, gameHeight);
