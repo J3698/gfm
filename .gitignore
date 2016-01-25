@@ -47,4 +47,12 @@ Temporary Items
 .apdisk
 
 # Java
+.mtj.tmp/
 *.class
+*.war
+*.ear
+
+
+# Project files
+*.classpath
+*.project
