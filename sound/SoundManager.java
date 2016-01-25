@@ -28,14 +28,12 @@ class SoundList implements Iterable<SoundNode> {
    private SoundNode myHead;
    private SoundNode myLast;
    private SoundNode myCurr;
-   private int mySize;
 
    public SoundList(String sound) {
       mySound = sound;
       myHead = null;
       myLast = null;
       myCurr = null;
-      mySize = 0;
    }
 
    public SoundNode getHead() {
@@ -55,7 +53,6 @@ class SoundList implements Iterable<SoundNode> {
          myLast.setNext(toAdd);
          myLast = toAdd;
       }
-      mySize++;
    }
 
    public void play() {
