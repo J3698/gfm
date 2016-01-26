@@ -15,10 +15,10 @@ public class Game {
    private Launcher myLauncher;
    private SoundManager mySoundManager;
 
-   public Game(String name, int gameWidth, int gameHeight) {
+   public Game(String name, int gameWidth, int gameHeight, int drawWidth, int drawHeight) {
       myName = name;
       myGamePanel = new GamePanel(this, gameWidth, gameHeight, "");
-      myGameFrame = new GameFrame(name, myGamePanel);
+      myGameFrame = new GameFrame(name, myGamePanel, drawWidth, drawHeight);
       myLauncher = new Launcher(this);
       mySoundManager = new SoundManager();
    }
@@ -53,7 +53,7 @@ public class Game {
       myGameFrame.getContentPane().remove(myGamePanel);
       myGameFrame.setVisible(false);
       myGameFrame.dispose();
-      myGameFrame = new GameFrame(myName, myGamePanel);
+      myGameFrame = new GameFrame(myName, myGamePanel, 0, 0);
       myGameFrame.setUndecorated(true);
       myGameFrame.getContentPane().add(myGamePanel);
       myGameFrame.setSize(
