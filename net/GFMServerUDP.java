@@ -1,5 +1,6 @@
 package gfm.net;
 
+import java.io.IOException;
 import java.net.DatagramPacket;
 import java.net.DatagramSocket;
 import java.net.InetAddress;
@@ -13,16 +14,13 @@ public class GFMServerUDP {
    private DatagramPacket myPacketIn;
    private DatagramPacket myPacketOut;
 
-   public GFMServerUDP(int port) throws SocketException {
-      this("", port);
+   public GFMServerUDP(int port) throws IOException {
+      this(null, port);
    }
-   public GFMServerUDP(String clientIp, int port) throws SocketException {
+   public GFMServerUDP(String clientIp, int port) throws IOException {
       myPort = port;
+      mySocket = new DatagramSocket(myPort);
       connect(clientIp);
-   }
-
-   private void connect() {
-      connect(null);
    }
 
    private void connect(String ip) throws IOException {

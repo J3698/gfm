@@ -70,7 +70,7 @@ public class GamePanel extends JPanel {
       for ( Macro macro : myMacros ) {
          macro.draw(pen);
       }
-      // need better system for drawing overcertain things...
+      // need better system for drawing over certain things...
       myGameStateManager.getCurrentGameState().drawOverMacro(pen);
    }
 
