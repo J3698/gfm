@@ -5,21 +5,22 @@ import javax.swing.JFrame;
 public class GameFrame extends JFrame {
    private static final long serialVersionUID = 1488512595217358382L;
 
-   private static final int myDefaultWidth = 770;
-   private static final int myDefaultHeight = 580;
-
    private GamePanel myGamePanel;
    private String myName;
 
-   public GameFrame(String name, GamePanel gamePanel) {
+   private int myDrawWidth;
+   private int myDrawHeight;
+
+   public GameFrame(String name, GamePanel gamePanel, int drawWidth, int drawHeight) {
       super(name);
       myName = name;
       myGamePanel = gamePanel;
+      myDrawWidth = drawWidth;
+      myDrawHeight = drawHeight;
+      setSize(myDrawWidth, myDrawHeight);
       getContentPane().add(myGamePanel);
-      setSize(myDefaultWidth, myDefaultHeight);
       setLocationRelativeTo(null);
       setResizable(true);
-      //setMinimumSize(new Dimension(myGamePanel.getGameWidth(), myGamePanel.getGameHeight()));
       setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
    }
 
