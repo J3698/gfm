@@ -27,11 +27,11 @@ public class Main {
    public static int drawHeight = (int) (1.2 * gameHeight);
 
    public static void main(String[] args) {
-      Game game = new Game("GFM", gameWidth, gameHeight);
+      Game game = new Game("GFM", gameWidth, gameHeight,
+                                  drawWidth, drawHeight);
 
-      game.getGamePanel().getGameStateManager().setGameState("templates");
-      game.getGamePanel().getGameStateManager().add(
-            "templates", new PlayGround(game, "templates"));
+      game.setGameState("templates");
+      game.addGameState(new PlayGround(game, "templates"));
 
       game.start();
    }
@@ -61,15 +61,16 @@ class PlayGround extends GameState {
    @Override
    public void initUI() {
       // some args (last 2) redundant
-      getGUIManager().addButton(
-            new MenuButton(
-                  new AddGameStateListener(), "New G S", new Vec2(50, 50), new Vec2(90, 90),
-                  getWidth(), getHeight()));
+      Button gsButton = new MenuButton(
+            new AddGameStateListener(), "New G S",
+            new Vec2(50, 50), new Vec2(90, 90)));
 
-      getGUIManager().addButton(
-            new MenuButton(
-                  new AddMainListener(), "New Main", new Vec2(150, 50), new Vec2(90, 90),
-                  getWidth(), getHeight()));
+      Button mainButton = new MenuButton(
+            new AddMainListener(), "New Main",
+            new Vec2(150, 50), new Vec2(90, 90)));
+
+      getGUIManager().addButton(gsButton);
+      getGUIManager().addButton(mainButton);
    }
 
    private class AddGameStateListener implements ActionListener {
