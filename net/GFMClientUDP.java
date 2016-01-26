@@ -1,6 +1,7 @@
 package gfm.net;
 
 import java.net.InetAddress;
+import java.io.IOException;
 import java.net.DatagramPacket;
 import java.net.DatagramSocket;
 
@@ -12,16 +13,16 @@ public class GFMClientUDP {
    private DatagramPacket myPacketOut;
 
 
-   public GFMClientUDP(int port) {
+   public GFMClientUDP(int port) throws IOException {
       this("", port);
    }
-   public GFMClientUDP(String serverIp, int port) throws SocketException, {
+   public GFMClientUDP(String serverIp, int port) throws IOException {
       myServerPort = port;
       mySocket = new DatagramSocket();
       connect(serverIp);
    }
 
-   private void connect(String serverIp) {
+   private void connect(String serverIp) throws IOException {
       myServerAddress = InetAddress.getByName(serverIp);
       send(new byte[]{0});
    }
@@ -32,7 +33,7 @@ public class GFMClientUDP {
       mySocket.send(myPacketOut);
    }
 
-   public void receive(int bytes) throws IOException {
+   public byte[] receive(int bytes) throws IOException {
       byte[] data = new byte[bytes];
       myPacketIn = new DatagramPacket(data, data.length);
       mySocket.receive(myPacketIn);
