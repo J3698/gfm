@@ -180,7 +180,7 @@ public class Launcher {
 
    public String getLatestVersion() throws UnknownHostException {
       if ( !isInited ) {
-         return "";
+         return null;
       }
 
       if ( myAvailableVersionURL == null ) {
@@ -220,7 +220,7 @@ public class Launcher {
 
    public String getCurrentVersion() {
       if ( !isInited ) {
-         return "";
+         return null;
       }
 
       if ( myCurrentVersion != null ) {
@@ -322,7 +322,7 @@ public class Launcher {
 
    public String getDownloadURL() {
       if ( !isInited ) {
-         return "";
+         return null;
       }
 
       return myDownloadURL;
