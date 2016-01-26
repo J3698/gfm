@@ -11,11 +11,8 @@ import java.util.HashMap;
 public class StringDraw {
    private static HashMap<String, Font> myFonts = new HashMap<String, Font>();
 
-   public static boolean addFont(String name, Font toAdd) {
-      if ( toAdd == null ) { throw new NullPointerException(); }
-      Object wasPut = myFonts.put(name, toAdd);
-      if ( wasPut == null ) { return false; }
-      return true;
+   public static void addFont(String name, Font toAdd) {
+      myFonts.put(name, toAdd);
    }
 
    public static Font getFont(String name) {
@@ -38,9 +35,8 @@ public class StringDraw {
       return stringRect;
    }
 
-   public static String[] availableFonts() {
+   public static String[] availableSystemFonts() {
       GraphicsEnvironment local = GraphicsEnvironment.getLocalGraphicsEnvironment();
       return local.getAvailableFontFamilyNames();
    }
-
 }
