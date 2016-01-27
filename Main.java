@@ -16,6 +16,7 @@ import javax.swing.JOptionPane;
  */
 
 import gfm.gamestate.GameState;
+import gfm.gui.Button;
 import gfm.gui.MenuButton;
 import gfm.templates.FileFactory;
 import gfm.util.Vec2;
@@ -28,7 +29,7 @@ public class Main {
 
    public static void main(String[] args) {
       Game game = new Game("GFM", gameWidth, gameHeight,
-                                  drawWidth, drawHeight);
+            drawWidth, drawHeight);
 
       game.setGameState("templates");
       game.addGameState(new PlayGround(game, "templates"));
@@ -60,14 +61,12 @@ class PlayGround extends GameState {
 
    @Override
    public void initUI() {
-      // some args (last 2) redundant
       Button gsButton = new MenuButton(
             new AddGameStateListener(), "New G S",
-            new Vec2(50, 50), new Vec2(90, 90)));
-
+            new Vec2(50, 50), new Vec2(90, 90));
       Button mainButton = new MenuButton(
             new AddMainListener(), "New Main",
-            new Vec2(150, 50), new Vec2(90, 90)));
+            new Vec2(150, 50), new Vec2(90, 90));
 
       getGUIManager().addButton(gsButton);
       getGUIManager().addButton(mainButton);
