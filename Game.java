@@ -2,10 +2,11 @@ package gfm;
 
 import java.awt.Point;
 import java.awt.Toolkit;
+import java.util.HashMap;
 
-import gfm.sound.SoundManager;
 import gfm.gamestate.GameState;
 import gfm.gamestate.Transition;
+import gfm.sound.SoundManager;
 
 public class Game {
    private String myName;
@@ -14,6 +15,7 @@ public class Game {
    private GameFrame myGameFrame;
    private Launcher myLauncher;
    private SoundManager mySoundManager;
+   private HashMap<String, Object> mySingletons;
 
    public Game(String name, int gameWidth, int gameHeight, int drawWidth, int drawHeight) {
       myName = name;
@@ -21,6 +23,7 @@ public class Game {
       myGameFrame = new GameFrame(name, myGamePanel, drawWidth, drawHeight);
       myLauncher = new Launcher(this);
       mySoundManager = new SoundManager();
+      mySingletons = new HashMap<String, Object>();
    }
 
    public void setGameState(String gameState) {
@@ -67,6 +70,14 @@ public class Game {
       myGamePanel.start();
       myGameFrame.setVisible(true);
    }
+
+   public void removeSingleton(String name) {
+      mySingletons.remove(name);
+   }
+   public void putSingleton(String name, Object toPut) {
+      mySingletons.put(name, toPut);
+   }
+   public Object getSingleton(String name) { return mySingletons.get(name); }
 
    public int getWidth() { return myGamePanel.getGameWidth(); }
    public void setWidth(int width) { myGamePanel.setGameWidth(width); }
