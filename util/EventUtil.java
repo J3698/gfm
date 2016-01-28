@@ -4,7 +4,17 @@ import java.awt.event.MouseEvent;
 
 import gfm.GamePanel;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class EventUtil.
+ */
 public class EventUtil {
+   
+   /**
+    * Scale event.
+    *
+    * @param event the event
+    */
    public static void scaleEvent(MouseEvent event) {
       GamePanel gamePanel = (GamePanel) event.getComponent();
       double scaleFactorX = gamePanel.getGameWidth() / (double) gamePanel.getWidth();

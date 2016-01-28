@@ -14,13 +14,30 @@ import javax.sound.sampled.LineListener;
 import javax.sound.sampled.LineUnavailableException;
 import javax.sound.sampled.UnsupportedAudioFileException;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class Sound.
+ */
 public class Sound {
+   
+   /** The my enabled. */
    private static boolean myEnabled = true;
 
+   /** The my audio in. */
    private AudioInputStream myAudioIn;
+   
+   /** The my clip. */
    private Clip myClip;
+   
+   /** The my gain control. */
    private FloatControl myGainControl;
 
+   /**
+    * Instantiates a new sound.
+    *
+    * @param filename the filename
+    * @param autoClose the auto close
+    */
    public Sound(String filename, boolean autoClose) {
       if (! filename.contains(".wav")) {
          filename += ".wav";
@@ -40,6 +57,11 @@ public class Sound {
       }
    }
 
+   /**
+    * Load sound.
+    *
+    * @param filename the filename
+    */
    private void loadSound(String filename) {
       try {
          //URL url = new URL("./" + fileName);//this.getClass().getResource(fileName);
@@ -59,20 +81,34 @@ public class Sound {
       }
    }
 
+   /**
+    * Play.
+    */
    public void play() {
       if (myEnabled) {
          myClip.start();
       }
    }
 
+   /**
+    * Loop.
+    *
+    * @param repetitions the repetitions
+    */
    public void loop(int repetitions) {
       myClip.loop(repetitions - 1);
    }
 
+   /**
+    * Loop.
+    */
    public void loop() {
       myClip.loop(Clip.LOOP_CONTINUOUSLY);
    }
 
+   /**
+    * Stop.
+    */
    public void stop() {
       if (myClip.isRunning()) {
          myClip.stop();
@@ -80,32 +116,57 @@ public class Sound {
       }
    }
 
+   /**
+    * Checks if is running.
+    *
+    * @return true, if is running
+    */
    public boolean isRunning() {
       return myClip.isRunning();
    }
 
+   /**
+    * Reset.
+    */
    public void reset() {
       myClip.setFramePosition(0);
    }
 
+   /**
+    * Change volume.
+    *
+    * @param decibels the decibels
+    */
    public void changeVolume(float decibels) {
       myGainControl.setValue(decibels);
    }
 
+   /**
+    * Close.
+    */
    public void close() {
       myClip.close();
    }
 
+   /**
+    * Close if finished.
+    */
    public void closeIfFinished() {
       if ( !isRunning() ) {
          close();
       }
    }
 
+   /**
+    * Enable.
+    */
    public static void enable() {
       myEnabled = true;
    }
 
+   /**
+    * Disable.
+    */
    public static void disable() {
       myEnabled = false;
    }

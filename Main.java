@@ -21,12 +21,29 @@ import gfm.gui.MenuButton;
 import gfm.templates.FileFactory;
 import gfm.util.Vec2;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class Main.
+ */
 public class Main {
+   
+   /** The game width. */
    public static int gameWidth = 640;
+   
+   /** The game height. */
    public static int gameHeight = 480;
+   
+   /** The draw width. */
    public static int drawWidth = (int) (1.2 * gameWidth);
+   
+   /** The draw height. */
    public static int drawHeight = (int) (1.2 * gameHeight);
 
+   /**
+    * The main method.
+    *
+    * @param args the arguments
+    */
    public static void main(String[] args) {
       Game game = new Game("GFM", gameWidth, gameHeight,
             drawWidth, drawHeight);

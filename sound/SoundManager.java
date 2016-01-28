@@ -3,13 +3,27 @@ package gfm.sound;
 import java.util.HashMap;
 import java.util.Iterator;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class SoundManager.
+ */
 public class SoundManager {
+   
+   /** The my sounds. */
    private HashMap<String, SoundList> mySounds;
 
+   /**
+    * Instantiates a new sound manager.
+    */
    public SoundManager() {
       mySounds = new HashMap<String, SoundList>();
    }
 
+   /**
+    * Play.
+    *
+    * @param sound the sound
+    */
    public void play(String sound) {
       SoundList toPlay = mySounds.get(sound);
       if ( toPlay != null ) {

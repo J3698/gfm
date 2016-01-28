@@ -7,19 +7,45 @@ import java.io.PrintStream;
 
 import javax.swing.JOptionPane;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class ErrorUtil.
+ */
 public class ErrorUtil {
+   
+   /**
+    * Error and exit.
+    *
+    * @param message the message
+    */
    public static void errorAndExit(String message) {
       error(message);
       System.exit(0);
    }
+   
+   /**
+    * Error.
+    *
+    * @param message the message
+    */
    public static void error(String message) {
       JOptionPane.showMessageDialog(null, message);
    }
 
+   /**
+    * Error to file.
+    *
+    * @param e the e
+    */
    public static void errorToFile(Exception e) {
       errorToFileWithMessage(e, "");
    }
 
+   /**
+    * Error to file with feedback.
+    *
+    * @param e the e
+    */
    public static void errorToFileWithFeedback(Exception e) {
       String message = JOptionPane.showInputDialog("Please Describe The Bug: ");
       if ( message != null ) {
@@ -29,6 +55,12 @@ public class ErrorUtil {
       }
    }
 
+   /**
+    * Error to file with message.
+    *
+    * @param e the e
+    * @param message the message
+    */
    public static void errorToFileWithMessage(Exception e, String message) {
       // get available error-file name
       int errorNumb = 0;

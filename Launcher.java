@@ -15,24 +15,57 @@ import java.net.UnknownHostException;
 
 import javax.swing.JOptionPane;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class Launcher.
+ */
 public class Launcher {
+   
+   /** The Constant digits. */
    private static final String digits = "0123456789";
 
+   /** The is inited. */
    private boolean isInited = false;
+   
+   /** The my available version url. */
    private String myAvailableVersionURL = null;
+   
+   /** The my current version url. */
    private String myCurrentVersionURL = null;
+   
+   /** The my current version. */
    private String myCurrentVersion = null;
+   
+   /** The my latest version. */
    private String myLatestVersion = null;
+   
+   /** The my download url. */
    private String myDownloadURL = null;
+   
+   /** The my upgrade size. */
    private int myUpgradeSize  = -1;
+   
+   /** The my bytes downloaded. */
    private volatile Integer myBytesDownloaded = null;
 
+   /** The my game. */
    private Game myGame;
 
+   /**
+    * Instantiates a new launcher.
+    *
+    * @param game the game
+    */
    public Launcher(Game game) {
       myGame = game;
    }
 
+   /**
+    * Inits the versioning.
+    *
+    * @param versioningFile the versioning file
+    * @throws UnknownHostException the unknown host exception
+    */
    public void initVersioning(String versioningFile) throws UnknownHostException {
       InputStream in = null;
       BufferedReader reader = null;
@@ -79,6 +112,11 @@ public class Launcher {
       getCurrentVersion();
    }
 
+   /**
+    * Checks if is latest version.
+    *
+    * @return true, if is latest version
+    */
    public boolean isLatestVersion() {
       if ( !isInited ) {
          return true;
@@ -155,10 +193,20 @@ public class Launcher {
       return true;
    }
 
+   /**
+    * Message.
+    *
+    * @param message the message
+    */
    public void message(String message) {
       JOptionPane.showMessageDialog(myGame.getGamePanel(), message);
    }
 
+   /**
+    * Gets the upgrade size.
+    *
+    * @return the upgrade size
+    */
    public int getUpgradeSize() {
       if ( !isInited ) {
          return -1;
@@ -174,10 +222,21 @@ public class Launcher {
       return myUpgradeSize;
    }
 
+   /**
+    * Gets the bytes downloaded.
+    *
+    * @return the bytes downloaded
+    */
    public Integer getBytesDownloaded() {
       return myBytesDownloaded;
    }
 
+   /**
+    * Gets the latest version.
+    *
+    * @return the latest version
+    * @throws UnknownHostException the unknown host exception
+    */
    public String getLatestVersion() throws UnknownHostException {
       if ( !isInited ) {
          return null;
@@ -218,6 +277,11 @@ public class Launcher {
       return myLatestVersion;
    }
 
+   /**
+    * Gets the current version.
+    *
+    * @return the current version
+    */
    public String getCurrentVersion() {
       if ( !isInited ) {
          return null;
@@ -257,6 +321,11 @@ public class Launcher {
       }
    }
 
+   /**
+    * Download latest version.
+    *
+    * @return true, if successful
+    */
    public boolean downloadLatestVersion() {
       if ( !isInited ) {
          return true;
@@ -320,6 +389,11 @@ public class Launcher {
       return true;
    }
 
+   /**
+    * Gets the download url.
+    *
+    * @return the download url
+    */
    public String getDownloadURL() {
       if ( !isInited ) {
          return null;

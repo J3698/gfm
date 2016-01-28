@@ -9,15 +9,39 @@ import java.util.Scanner;
 
 import javax.swing.JOptionPane;
 
+// TODO: Auto-generated Javadoc
+/**
+ * A factory for creating File objects.
+ */
 public class FileFactory {
+   
+   /**
+    * New main.
+    *
+    * @param name the name
+    * @return true, if successful
+    */
    public static boolean newMain(String name) {
       return classFromTemplate(name, "MainTemplate");
    }
 
+   /**
+    * New game state.
+    *
+    * @param name the name
+    * @return true, if successful
+    */
    public static boolean newGameState(String name) {
       return classFromTemplate(name, "GSTemplate");
    }
 
+   /**
+    * Class from template.
+    *
+    * @param name the name
+    * @param template the template
+    * @return true, if successful
+    */
    public static boolean classFromTemplate(String name, String template) {
       File out = new File(name + ".java");
       InputStream in =
