@@ -11,8 +11,7 @@ import gfm.Game;
 import gfm.Macro;
 
 // Note, not everything is treated fairly,
-// can only disable buttons, only they make
-// sound, etc.
+// only buttones can be disabled, make sound
 
 public class GUIManager implements Macro {
    private Game myGame;
