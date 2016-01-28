@@ -5,20 +5,21 @@ import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.event.ActionListener;
 
-import gfm.Game;
 import gfm.util.StringDraw;
 import gfm.util.Vec2;
 
 public class BasicButton implements Button {
+   private GUIManager myGUIManager;
    private ActionListener myListener;
-   private boolean myMouseHovering;
-   private Vec2 myPosition;
-   private Vec2 mySize;
    private String myText;
    private Color myBodyColor;
    private Color myTextColor;
    private Font myFont;
-   private Game myGame;
+   private Vec2 myPosition;
+   private Vec2 mySize;
+   private String myHoverSound;
+   private String myClickSound;
+   private boolean myMouseHovering;
 
    public BasicButton(ActionListener listener, String text, Color bodyColor, Color textColor, Font font,
          Vec2 position, Vec2 size) {
@@ -108,7 +109,18 @@ public class BasicButton implements Button {
 
 
    @Override
-   public Game getGame() { return myGame; }
+   public GUIManager getGUIManager() { return myGUIManager; }
    @Override
-   public void setGame(Game game) { myGame = game; }
+   public void setGUIManager(GUIManager guiManager) { myGUIManager = guiManager; }
+
+   @Override
+   public String getHoverSound() { return myHoverSound; }
+   @Override
+   public void setHoverSound(String sound) { myHoverSound = sound; }
+
+   @Override
+   public String getClickSound() { return myClickSound; }
+
+   @Override
+   public void setClickSound(String sound) { myClickSound = sound; }
 }
