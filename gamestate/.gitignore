@@ -16,3 +16,9 @@
 /GameStateManager.class
 /Transition.class
 /UnchartedTerritory.class
+/FadeTransition.class
+/GameState.class
+/GameStateAdapter.class
+/GameStateManager.class
+/Transition.class
+/UnchartedTerritory.class
