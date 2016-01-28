@@ -30,7 +30,7 @@ public class UnchartedTerritory extends GameState {
    }
 
    @Override
-   public void initUI() {
+   public void initGUI() {
    }
 
    @Override

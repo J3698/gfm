@@ -1,6 +1,5 @@
-package rpgeo;
+package PACKAGENAME;
 
-import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.event.KeyEvent;
 import java.awt.event.MouseEvent;
@@ -10,9 +9,6 @@ import gfm.Game;
 import gfm.gamestate.GameState;
 
 public class CLASSNAME extends GameState {
-   private boolean myDidWin;
-   private boolean myAskedForReplay;
-   private int myTick;
 
    public CLASSNAME (Game game) {
       super(game);
@@ -23,20 +19,16 @@ public class CLASSNAME extends GameState {
    }
 
    @Override
-   public void draw(Graphics pen) {
-   }
+   public void draw(Graphics pen) {}
 
    @Override
-   public void update() {
-   }
+   public void update() { }
 
    @Override
-   public void initUI() {
-   }
+   public void init() { }
 
    @Override
-   public void init() {
-   }
+   public void initGUI() { }
 
    @Override
    public void keyPressed(KeyEvent event) { }

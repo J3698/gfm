@@ -28,7 +28,7 @@ public class FadeTransition extends Transition {
       myCurrStep = 0;
    }
    @Override
-   public void initUI() {}
+   public void initGUI() {}
 
    @Override
    public void draw(Graphics pen) { }

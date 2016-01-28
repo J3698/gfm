@@ -60,7 +60,7 @@ class PlayGround extends GameState {
    public void init() {}
 
    @Override
-   public void initUI() {
+   public void initGUI() {
       Button gsButton = new MenuButton(
             new AddGameStateListener(), "New G S",
             new Vec2(50, 50), new Vec2(90, 90));

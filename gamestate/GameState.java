@@ -33,8 +33,8 @@ public abstract class GameState {
       myGUIManager = new GUIManager(game);
       myKeyListener = new KeyListener(this);
       myMouseListener = new MouseListener(this);
-      initUI();
       init();
+      initGUI();
    }
 
    public String getGameMode() { return myGameMode; }
@@ -52,7 +52,7 @@ public abstract class GameState {
    public abstract void draw(Graphics pen);
    public abstract void update();
 
-   public abstract void initUI();
+   public abstract void initGUI();
    public abstract void init();
 
    public abstract void keyPressed(KeyEvent event);

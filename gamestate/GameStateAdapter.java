@@ -23,7 +23,7 @@ public class GameStateAdapter extends GameState {
    @Override
    public void update() { }
    @Override
-   public void initUI() { }
+   public void initGUI() { }
    @Override
    public void init() { }
 
