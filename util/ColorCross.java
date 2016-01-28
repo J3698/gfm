@@ -1,6 +1,7 @@
 package gfm.util;
 
 import java.awt.Color;
+import java.util.Random;
 
 public class ColorCross {
    Color myStartColor;
@@ -58,7 +59,8 @@ public class ColorCross {
       g2 = myEndColor.getGreen() * percent;
       b2 = myEndColor.getBlue() * percent;
       a2 = myEndColor.getAlpha() * percent;
-      return new Color((int)(r + r2), (int)(g + g2), (int)(b + b2), (int)(a + a2));
+      return new Color((int)(r + r2),
+            (int)(g + g2), (int)(b + b2), (int)(a + a2));
    }
 
    public int limit(double color) {
@@ -82,5 +84,13 @@ public class ColorCross {
       int green = color.getGreen();
       int blue = color.getBlue();
       return new Color(red, green, blue, alpha);
+   }
+
+   public static Color randColor() {
+      Random rand = new Random();
+      int r = rand.nextInt(255);
+      int g = rand.nextInt(255);
+      int b = rand.nextInt(255);
+      return new Color(r, g, b);
    }
 }
