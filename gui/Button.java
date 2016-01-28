@@ -2,7 +2,6 @@ package gfm.gui;
 
 import java.awt.Graphics;
 
-import gfm.Game;
 import gfm.util.Vec2;
 
 public interface Button {
@@ -12,14 +11,20 @@ public interface Button {
    void doAction();
    boolean collidesPoint(double x, double y);
 
-   void setPosition(Vec2 position);
    Vec2 getPosition();
-   void setSize(Vec2 size);
+   void setPosition(Vec2 position);
    Vec2 getSize();
+   void setSize(Vec2 size);
+
+   GUIManager getGUIManager();
+   void setGUIManager(GUIManager guianager);
 
    boolean getMouseHovering();
    void setMouseHovering(boolean isHovering);
 
-   void setGame(Game myGame);
-   Game getGame();
+   String getHoverSound();
+   void setHoverSound(String sound);
+
+   String getClickSound();
+   void setClickSound(String sound);
 }
