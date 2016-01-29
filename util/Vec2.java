@@ -1,6 +1,7 @@
 package gfm.util;
 
 import java.awt.Graphics;
+import java.awt.Point;
 import java.util.ArrayList;
 import java.util.Random;
 
@@ -9,18 +10,30 @@ import java.util.Random;
  * The Class Vec2.
  */
 public class Vec2 {
-   /** The y. */
+   /** The x component of the vector. */
    private double x;
 
-   /** The y. */
+   /** The y component of the vector. */
    private double y;
 
+
+
    /**
-    * Instantiates a new vec2.
+    * Instantiates a new vec2 zero vector.
     */
    public Vec2() {                                //Constructor
       this(0, 0);
    }
+
+   /**
+    * Instantiates a new vec2 from a point.
+    *
+    * @param point the point to use
+    */
+   public Vec2(Point point) {
+      this(point.getX(), point.getY());
+   }
+
 
    /**
     * Instantiates a new vec2.
@@ -209,7 +222,7 @@ public class Vec2 {
    /**
     * Limit magnitude.
     *
-    * @param scalar the scalar
+    * @param scalar the scalar to limit the magnitude to.
     */
    public void limitMagnitude(double scalar){
       if(getMagnitude() > scalar) {
@@ -218,11 +231,11 @@ public class Vec2 {
    }
 
    /**
-    * As radians.
+    * Return vector heading in radians.
     *
     * @return the double
     */
-   public double asRadians(){                        //Return vector heading
+   public double asRadians(){
       if(x == 0) {
          return Math.PI / 2;
       }
@@ -230,7 +243,7 @@ public class Vec2 {
    }
 
    /**
-    * As degrees.
+    * Return vector heading in degrees.
     *
     * @return the double
     */
@@ -239,7 +252,7 @@ public class Vec2 {
    }
 
    /**
-    * Rotate about radians.
+    * Rotate the vector about a point in radians.
     *
     * @param center the center
     * @param angle the angle
@@ -257,7 +270,8 @@ public class Vec2 {
     * @param angle the angle
     */
    public void rotateAboutDegrees(Vec2 center, double angle) {
-      rotateAboutRadians(center, Math.toRadians(angle % 360));
+      double radAngle = Math.toRadians(angle % 360);
+      rotateAboutRadians(center, radAngle);
    }
 
    /**
@@ -296,7 +310,7 @@ public class Vec2 {
    }
 
    /**
-    * Copy.
+    * Return a deep copy of this vector
     *
     * @return the vec2
     */
@@ -305,15 +319,29 @@ public class Vec2 {
    }
 
    /**
-    * To array.
+    * Return a copy of the vector as an array{@code {x, y}}.
     *
-    * @return the double[]
+    * @return A double array
     */
    public double[] toArray() {
       return new double[] {x, y};
    }
 
-   /* (non-Javadoc)
+   /**
+    * Return a copy of the vector as a point.
+    *
+    * @return A double array
+    */
+
+   public Point toPoint() {
+      return new Point((int) x, (int) y);
+   }
+
+   /**
+    * Get a Srting representation of the vector of the form (x, y)
+    *
+    * @return a string representation of the vector
+    *
     * @see java.lang.Object#toString()
     */
    @Override
@@ -324,8 +352,8 @@ public class Vec2 {
    /**
     * Equals.
     *
-    * @param other the other
-    * @return true, if successful
+    * @param other the other vector to compare against
+    * @return true, if both vectors are equal
     */
    public boolean equals(Vec2 other) {
       return x == other.getX() && y == other.getY();
