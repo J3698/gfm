@@ -11,16 +11,16 @@ import gfm.util.Vec2;
  * The Class Particle.
  */
 public abstract class Particle {
-   
+
    /** The my particle position. */
    private Vec2 myParticlePosition;
-   
+
    /** The my particle velocity. */
    private Vec2 myParticleVelocity;
-   
+
    /** The my life. */
    private int myLife = 255;
-   
+
    /** The my color. */
    private Color myColor;
 
@@ -49,14 +49,14 @@ public abstract class Particle {
     * Update.
     */
    public abstract void update();
-   
+
    /**
     * Draw.
     *
     * @param pen the pen
     */
    public abstract void draw(Graphics pen);
-   
+
    /**
     * New particle.
     *
@@ -64,14 +64,14 @@ public abstract class Particle {
     */
    public abstract Particle newParticle();
 
-   
+
    /**
     * Checks if is dead.
     *
     * @return true, if is dead
     */
    public boolean isDead() {
-      if (myLife > 0) {
+      if ( myLife > 0 ) {
          return false;
       }
       return true;
@@ -89,7 +89,7 @@ public abstract class Particle {
       int blue = random.nextInt(256);
       return new Color(red, green, blue);
    }
-   
+
    /**
     * Gets the random color.
     *
@@ -111,61 +111,61 @@ public abstract class Particle {
    }
 
    /**
-    * Lose life.
+    * Subtract life from this Particle.
     *
     * @param damage the damage
     */
    public void loseLife(int damage) { myLife -= damage; }
-   
+
    /**
     * Gets the life.
     *
     * @return the life
     */
    public int getLife(){ return myLife; }
-   
+
    /**
     * Sets the life.
     *
     * @param life the new life
     */
    public void setLife(int life){ myLife = life; }
-   
+
    /**
     * Gets the position.
     *
     * @return the position
     */
    public Vec2 getPosition() { return myParticlePosition; }
-   
+
    /**
     * Sets the position.
     *
     * @param position the new position
     */
-   public void setPosition(Vec2 position) {myParticlePosition = position; }
-   
+   public void setPosition(Vec2 position) { myParticlePosition = position; }
+
    /**
     * Gets the velocity.
     *
     * @return the velocity
     */
    public Vec2 getVelocity() { return myParticleVelocity; }
-   
+
    /**
     * Sets the velocity.
     *
     * @param velocity the new velocity
     */
    public void setVelocity(Vec2 velocity) { myParticleVelocity = velocity; }
-   
+
    /**
     * Sets the color.
     *
     * @param color the new color
     */
    public void setColor(Color color) { myColor = color; }
-   
+
    /**
     * Gets the color.
     *
