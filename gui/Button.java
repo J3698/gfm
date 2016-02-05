@@ -9,14 +9,14 @@ import gfm.util.Vec2;
  * The Interface Button.
  */
 public interface Button {
-   
+
    /**
     * Draw.
     *
     * @param pen the pen
     */
    void draw(Graphics pen);
-   
+
    /**
     * Draw hovered.
     *
@@ -28,7 +28,7 @@ public interface Button {
     * Do action.
     */
    void doAction();
-   
+
    /**
     * Collides point.
     *
@@ -43,22 +43,22 @@ public interface Button {
     *
     * @return the position
     */
-   Vec2 getPosition();
-   
+   Vec2 getPos();
+
    /**
     * Sets the position.
     *
     * @param position the new position
     */
-   void setPosition(Vec2 position);
-   
+   void setPos(Vec2 position);
+
    /**
     * Gets the size.
     *
     * @return the size
     */
    Vec2 getSize();
-   
+
    /**
     * Sets the size.
     *
@@ -72,7 +72,7 @@ public interface Button {
     * @return the GUI manager
     */
    GUIManager getGUIManager();
-   
+
    /**
     * Sets the GUI manager.
     *
@@ -86,7 +86,7 @@ public interface Button {
     * @return the mouse hovering
     */
    boolean getMouseHovering();
-   
+
    /**
     * Sets the mouse hovering.
     *
@@ -100,7 +100,7 @@ public interface Button {
     * @return the hover sound
     */
    String getHoverSound();
-   
+
    /**
     * Sets the hover sound.
     *
@@ -114,7 +114,7 @@ public interface Button {
     * @return the click sound
     */
    String getClickSound();
-   
+
    /**
     * Sets the click sound.
     *

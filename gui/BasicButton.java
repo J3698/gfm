@@ -144,13 +144,13 @@ public class BasicButton implements Button {
     * @see gfm.gui.Button#getPosition()
     */
    @Override
-   public Vec2 getPosition() { return myPosition; }
+   public Vec2 getPos() { return myPosition; }
    
    /* (non-Javadoc)
     * @see gfm.gui.Button#setPosition(gfm.util.Vec2)
     */
    @Override
-   public void setPosition(Vec2 position) { myPosition = position; }
+   public void setPos(Vec2 position) { myPosition = position; }
 
    /* (non-Javadoc)
     * @see gfm.gui.Button#getSize()
