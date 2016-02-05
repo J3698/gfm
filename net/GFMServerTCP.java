@@ -1,3 +1,6 @@
+/*
+ *
+ */
 package gfm.net;
 
 import java.io.BufferedReader;
@@ -9,41 +12,41 @@ import java.io.OutputStream;
 import java.net.ServerSocket;
 import java.net.Socket;
 
-// TODO: Auto-generated Javadoc
 /**
- * The Class GFMServerTCP.
+ * The GFM TCP server class.
  */
 public class GFMServerTCP {
-   
-   /** The my port. */
+   public static void main(String[] args) {
+
+   }
+
+   /** The port number. */
    private int myPort;
-   
-   /** The my server socket. */
+
+   /** The server socket. */
    private ServerSocket myServerSocket;
-   
-   /** The my socket in. */
+
+   /** The socket in. */
    private Socket mySocketIn;
-   
-   /** The my input stream. */
+
+   /** The input stream. */
    private InputStream myInputStream;
-   
-   /** The my output stream. */
+
+   /** The output stream. */
    private OutputStream myOutputStream;
-   
-   /** The my reader. */
+
+   /** The buffered reader. */
    private BufferedReader myReader;
-   
-   /** The my writer. */
+
+   /** The data outputstream. */
    private DataOutputStream myWriter;
 
-   // either this creates own thread (more abst.), or
    /**
-    * Instantiates a new GFM server tcp.
+    * Instantiates a new GFM TCP server.
     *
-    * @param port the port
+    * @param port the port to start the server on
     * @throws IOException Signals that an I/O exception has occurred.
     */
-   // game creator makes own thread.
    public GFMServerTCP(int port) throws IOException {
       myPort = port;
       myServerSocket = new ServerSocket(myPort);
@@ -51,7 +54,7 @@ public class GFMServerTCP {
    }
 
    /**
-    * Connect.
+    * Wait for a connection from a client.
     *
     * @throws IOException Signals that an I/O exception has occurred.
     */
@@ -63,4 +66,19 @@ public class GFMServerTCP {
       myReader = new BufferedReader(in);
       myWriter = new DataOutputStream(myOutputStream);
    }
+
+   /**
+    * Gets the buffered reader of this servers connection.
+    *
+    * @return the buffered reader
+    */
+   public BufferedReader getReader() { return myReader; }
+
+
+   /**
+    * Gets the data outputstream of this servers connection.
+    *
+    * @return the writer
+    */
+   public DataOutputStream getWriter() { return myWriter; }
 }

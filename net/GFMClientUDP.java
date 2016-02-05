@@ -1,28 +1,28 @@
 package gfm.net;
 
-import java.net.InetAddress;
 import java.io.IOException;
 import java.net.DatagramPacket;
 import java.net.DatagramSocket;
+import java.net.InetAddress;
 
 // TODO: Auto-generated Javadoc
 /**
  * The Class GFMClientUDP.
  */
 public class GFMClientUDP {
-   
+
    /** The my socket. */
    private DatagramSocket mySocket;
-   
+
    /** The my server address. */
    private InetAddress myServerAddress;
-   
+
    /** The my server port. */
    private int myServerPort;
-   
+
    /** The my packet in. */
    private DatagramPacket myPacketIn;
-   
+
    /** The my packet out. */
    private DatagramPacket myPacketOut;
 
@@ -36,7 +36,7 @@ public class GFMClientUDP {
    public GFMClientUDP(int port) throws IOException {
       this("", port);
    }
-   
+
    /**
     * Instantiates a new GFM client udp.
     *
@@ -67,7 +67,7 @@ public class GFMClientUDP {
     * @param data the data
     * @throws IOException Signals that an I/O exception has occurred.
     */
-   public void send(byte[] data) throws IOException {
+   public void send(final byte[] data) throws IOException {
       myPacketOut =
             new DatagramPacket(data, data.length, myServerAddress, myServerPort);
       mySocket.send(myPacketOut);
