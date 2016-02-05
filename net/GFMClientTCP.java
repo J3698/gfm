@@ -9,43 +9,41 @@ import java.io.OutputStream;
 import java.net.Socket;
 import java.net.UnknownHostException;
 
-// TODO: Auto-generated Javadoc
 /**
- * The Class GFMClientTCP.
+ * The GFM TCP client class.
  */
 public class GFMClientTCP {
-   
-   /** The my server ip. */
+
+   /** The server ip. */
    private String myServerIp;
-   
-   /** The my server port. */
+
+   /** The server port. */
    private int myServerPort;
-   
-   /** The my socket. */
+
+   /** The socket. */
    private Socket mySocket;
-   
-   /** The my input stream. */
+
+   /** The input stream. */
    private InputStream myInputStream;
-   
-   /** The my output stream. */
+
+   /** The output stream. */
    private OutputStream myOutputStream;
-   
-   /** The my reader. */
+
+   /** The reader. */
    private BufferedReader myReader;
-   
-   /** The my writer. */
+
+   /** The writer. */
    private DataOutputStream myWriter;
 
 
    /**
-    * Instantiates a new GFM client tcp.
+    * Instantiates a new GFM TCP client.
     *
     * @param serverIp the server ip
     * @param serverPort the server port
-    * @throws UnknownHostException the unknown host exception
-    * @throws IOException Signals that an I/O exception has occurred.
+    * @throws UnknownHostException if client can't connect to the server
+    * @throws IOException Signals that an I/O exception has occurred in connecting.
     */
-   // same thing with error handling, see server note.
    public GFMClientTCP(String serverIp, int serverPort) throws UnknownHostException, IOException {
       myServerIp = serverIp;
       myServerPort = serverPort;
@@ -53,7 +51,7 @@ public class GFMClientTCP {
    }
 
    /**
-    * Connect.
+    * Connect to the server.
     *
     * @throws UnknownHostException the unknown host exception
     * @throws IOException Signals that an I/O exception has occurred.
@@ -66,4 +64,18 @@ public class GFMClientTCP {
       myReader = new BufferedReader(in);
       myWriter = new DataOutputStream(myOutputStream);
    }
+
+   /**
+    * Gets the buffered reader of this servers connection.
+    *
+    * @return the buffered reader
+    */
+   public BufferedReader getReader() { return myReader; }
+
+   /**
+    * Gets the data outputstream of this servers connection.
+    *
+    * @return the writer
+    */
+   public DataOutputStream getWriter() { return myWriter; }
 }
