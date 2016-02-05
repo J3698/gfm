@@ -11,24 +11,27 @@ import gfm.util.ArrayUtils.IterableProtector;
  * The Class GameStateManager.
  */
 public class GameStateManager {
-   
+
    /** The my current game state. */
    private String myCurrentGameState;
-   
-   /** The my game. */
+
+   /** The game. */
    private Game myGame;
 
-   /** The my is transitioning. */
+   /** Whether gamestate is transitioning. */
    private boolean myIsTransitioning;
-   
-   /** The my transition. */
+
+   /** The transition. */
    private Transition myTransition;
 
-   /** The my game states array. */
+   /** The game states array. */
    private ArrayList<GameState> myGameStatesArray;
-   
-   /** The my game states hash. */
+
+   /** The game states hash. */
    private HashMap<String, GameState> myGameStatesHash;
+
+   /** The uncharted territory gamestate */
+   private UnchartedTerritory myUnchartedTerritory;
 
    /**
     * Instantiates a new game state manager.
@@ -54,6 +57,8 @@ public class GameStateManager {
 
       myGameStatesArray = new ArrayList<GameState>();
       myGameStatesHash = new HashMap<String, GameState>();
+
+      myUnchartedTerritory = new UnchartedTerritory(myGame);
    }
 
    /**
@@ -66,7 +71,7 @@ public class GameStateManager {
    }
 
    /**
-    * Adds the.
+    * Adds the game state.
     *
     * @param gameState the game state
     */
@@ -147,7 +152,7 @@ public class GameStateManager {
       } else if ( myGameStatesHash.get(myCurrentGameState) != null ) {
          return myGameStatesHash.get(myCurrentGameState);
       } else {
-         return new UnchartedTerritory(myGame);
+         return myUnchartedTerritory;
       }
    }
 

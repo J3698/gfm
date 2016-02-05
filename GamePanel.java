@@ -18,31 +18,31 @@ import gfm.util.Camera;
  * The Class GamePanel.
  */
 public class GamePanel extends JPanel {
-   
+
    /** The Constant serialVersionUID. */
    private static final long serialVersionUID = 1069592807236812370L;
-   
+
    /** The my game. */
    private Game myGame;
-   
+
    /** The my camera. */
    private Camera myCamera;
-   
+
    /** The my listener manager. */
    private ListenerManager myListenerManager;
-   
+
    /** The my game state manager. */
    private GameStateManager myGameStateManager;
-   
+
    /** The my macros. */
    private LinkedList<Macro> myMacros;
-   
+
    /** The timer. */
    private Timer timer;
-   
+
    /** The my game width. */
    private int myGameWidth;
-   
+
    /** The my game height. */
    private int myGameHeight;
 
@@ -138,7 +138,7 @@ public class GamePanel extends JPanel {
     * @see UpdateEvent
     */
    public class UpdateListener implements ActionListener {
-      
+
       /* (non-Javadoc)
        * @see java.awt.event.ActionListener#actionPerformed(java.awt.event.ActionEvent)
        */
@@ -150,7 +150,7 @@ public class GamePanel extends JPanel {
    }
 
    /**
-    * Iter macros.
+    * Return an Iterable Protector to iterate through macros
     *
     * @return the iterable protector
     */
@@ -182,21 +182,21 @@ public class GamePanel extends JPanel {
     * @return the game width
     */
    public int getGameWidth() { return myGameWidth; }
-   
+
    /**
     * Gets the game height.
     *
     * @return the game height
     */
    public int getGameHeight() { return myGameHeight; }
-   
+
    /**
     * Sets the game width.
     *
     * @param gameWidth the new game width
     */
    public void setGameWidth(int gameWidth) { myGameWidth = gameWidth; }
-   
+
    /**
     * Sets the game height.
     *
