@@ -13,12 +13,12 @@ import java.util.HashMap;
  * The Class StringDraw.
  */
 public class StringDraw {
-   
-   /** The my fonts. */
+
+   /** The map of fonts. */
    private static HashMap<String, Font> myFonts = new HashMap<String, Font>();
 
    /**
-    * Adds the font.
+    * Adds a font.
     *
     * @param name the name
     * @param toAdd the to add
@@ -28,7 +28,7 @@ public class StringDraw {
    }
 
    /**
-    * Gets the font.
+    * Gets a font.
     *
     * @param name the name
     * @return the font
