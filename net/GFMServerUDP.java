@@ -10,28 +10,27 @@ import java.net.InetAddress;
  * The Class GFMServerUDP.
  */
 public class GFMServerUDP {
-   
-   /** The my socket. */
+
+   /** The socket. */
    private DatagramSocket mySocket;
-   
-   /** The my port. */
+
+   /** The port number. */
    private int myPort;
-   
-   /** The my client port. */
+
+   /** The client port number. */
    private int myClientPort;
-   
-   /** The my client address. */
+
+   /** The client address. */
    private InetAddress myClientAddress;
-   
-   /** The my packet in. */
-   // need "soundmanager" of packets?
+
+   /** The packet for receiving data. */
    private DatagramPacket myPacketIn;
-   
-   /** The my packet out. */
+
+   /** The packet for sending data. */
    private DatagramPacket myPacketOut;
 
    /**
-    * Instantiates a new GFM server udp.
+    * Instantiates a new UDP GFM server.
     *
     * @param port the port
     * @throws IOException Signals that an I/O exception has occurred.
@@ -39,9 +38,9 @@ public class GFMServerUDP {
    public GFMServerUDP(int port) throws IOException {
       this(null, port);
    }
-   
+
    /**
-    * Instantiates a new GFM server udp.
+    * Instantiates a new UDP GFM server.
     *
     * @param clientIp the client ip
     * @param port the port
@@ -54,9 +53,9 @@ public class GFMServerUDP {
    }
 
    /**
-    * Connect.
+    * Wait for a given ip to connect, or if ip is null, wait for any connection.
     *
-    * @param ip the ip
+    * @param ip the client ip to wait for, or null
     * @throws IOException Signals that an I/O exception has occurred.
     */
    private void connect(String ip) throws IOException {
@@ -76,19 +75,19 @@ public class GFMServerUDP {
    }
 
    /**
-    * Send.
+    * Send the given byte data.
     *
     * @param data the data
     * @throws IOException Signals that an I/O exception has occurred.
     */
-   public void send(byte[] data) throws IOException {
+   public void send(final byte[] data) throws IOException {
       myPacketOut =
             new DatagramPacket(data, data.length, myClientAddress, myClientPort);
       mySocket.send(myPacketOut);
    }
 
    /**
-    * Receive.
+    * Receive the given byte data.
     *
     * @param bytes the bytes
     * @return the byte[]
@@ -102,7 +101,7 @@ public class GFMServerUDP {
    }
 
    /**
-    * Close.
+    * Close the server.
     */
    public void close() {
       mySocket.close();
