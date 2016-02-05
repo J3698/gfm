@@ -33,8 +33,8 @@ public class GameOverButton extends BasicButton {
    public void draw(Graphics pen) {
       pen.setFont(new Font("sans", 0, 15));
       pen.setColor(getTextColor());
-      int centerX = (int) (getPosition().getX() + getSize().getX() / 2);
-      int centerY = (int) (getPosition().getY() + getSize().getY() / 2);
+      int centerX = (int) (getPos().getX() + getSize().getX() / 2);
+      int centerY = (int) (getPos().getY() + getSize().getY() / 2);
       StringDraw.drawStringCenter(pen, getText(), centerX, centerY);
    }
 
@@ -45,8 +45,8 @@ public class GameOverButton extends BasicButton {
    public void drawHovered(Graphics pen) {
       pen.setFont(new Font("sans", 0, 15));
       pen.setColor(new Color(180, 180, 180));
-      int centerX = (int) (getPosition().getX() + getSize().getX() / 2);
-      int centerY = (int) (getPosition().getY() + getSize().getY() / 2);
+      int centerX = (int) (getPos().getX() + getSize().getX() / 2);
+      int centerY = (int) (getPos().getY() + getSize().getY() / 2);
       StringDraw.drawStringCenter(pen, getText(), centerX, centerY);
    }
 }
