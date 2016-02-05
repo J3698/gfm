@@ -12,28 +12,28 @@ import gfm.util.ColorCross;
  * The Class GUIBox.
  */
 public class GUIBox extends GUIComponentAdapter {
-   
+
    /** The my box. */
    private Rectangle myBox;
-   
+
    /** The my color. */
    private Color myColor;
-   
+
    /** The my max opacity. */
    private int myMaxOpacity;
-   
+
    /** The my min opacity. */
    private int myMinOpacity;
-   
+
    /** The my current opacity. */
    private int myCurrentOpacity;
-   
+
    /** The my opacity speed. */
    private int myOpacitySpeed;
-   
+
    /** The my opacity direction. */
    private int myOpacityDirection;
-   
+
    /** The my is activated. */
    private boolean myIsActivated;
 
@@ -94,12 +94,73 @@ public class GUIBox extends GUIComponentAdapter {
       }
    }
 
+   public void alignBottomLeft(Button toAlign) {
+      alignBottom(toAlign);
+      alignLeft(toAlign);
+   }
+   public void alignBottomMiddle(Button toAlign) {
+      alignBottom(toAlign);
+      alignMiddleX(toAlign);
+   }
+   public void alignBottomRight(Button toAlign) {
+      alignBottom(toAlign);
+      alignRight(toAlign);
+   }
+   public void alignMiddleRight(Button toAlign) {
+      alignMiddleY(toAlign);
+      alignRight(toAlign);
+   }
+   public void alignMiddle(Button toAlign) {
+      alignMiddleY(toAlign);
+      alignMiddleX(toAlign);
+   }
+   public void alignMiddleLeft(Button toAlign) {
+      alignMiddleY(toAlign);
+      alignLeft(toAlign);
+   }
+   public void alignTopRight(Button toAlign) {
+      alignTop(toAlign);
+      alignRight(toAlign);
+   }
+   public void alignTopMiddle(Button toAlign) {
+      alignTop(toAlign);
+      alignMiddleX(toAlign);
+   }
+   public void alignTopLeft(Button toAlign) {
+      alignTop(toAlign);
+      alignLeft(toAlign);
+   }
+   public void alignTop(Button toAlign) {
+      toAlign.getPos().setY(myBox.getLocation().getY());
+   }
+   public void alignMiddleY(Button toAlign) {
+      double midY = myBox.getCenterY();
+      double y = midY - toAlign.getSize().getY() / 2;
+      toAlign.getPos().setY(y);
+   }
+   public void alignBottom(Button toAlign) {
+      double y = myBox.getMaxY() - toAlign.getSize().getY();
+      toAlign.getPos().setY(y);
+   }
+   public void alignLeft(Button toAlign) {
+      toAlign.getPos().setX(myBox.getLocation().getX());
+   }
+   public void alignMiddleX(Button toAlign) {
+      double midX = myBox.getCenterX();
+      double x = midX - toAlign.getSize().getX() / 2;
+      toAlign.getPos().setX(x);
+   }
+   public void alignRight(Button toAlign) {
+      double x = myBox.getMaxX() - toAlign.getSize().getX();
+      toAlign.getPos().setX(x);
+   }
 
    /**
-    * Contains.
+    * Determines whether the point where a MouseEvent occured is contained
+    * within this GUIBox.
     *
-    * @param event the event
-    * @return true, if successful
+    * @param event the mouse event
+    * @return true, if the GUIBox contains the event
     */
    public boolean contains(MouseEvent event) {
       if ( myBox.contains(event.getPoint()) ) {
@@ -112,19 +173,19 @@ public class GUIBox extends GUIComponentAdapter {
     * Activate.
     */
    public void activate() { myIsActivated = true; }
-   
+
    /**
     * Deactivate.
     */
    public void deactivate() { myIsActivated = false; }
-   
+
    /**
     * Sets the activated.
     *
     * @param activated the new activated
     */
    public void setActivated(boolean activated) { myIsActivated = activated; }
-   
+
    /**
     * Checks if is activated.
     *
