@@ -12,26 +12,26 @@ import gfm.GamePanel;
  * The Class Camera.
  */
 public class Camera {
-   
-   /** The my game panel. */
+
+   /** The game panel to draw on. */
    private GamePanel myGamePanel;
 
-   /** The my image. */
+   /** The image to draw on. */
    private BufferedImage myImage;
-   
-   /** The my pen. */
+
+   /** The pen to draw with. */
    private Graphics myPen;
 
-   /** The my default pos1. */
+   /** The default left upper corner. */
    private Vec2 myDefaultPos1;
-   
-   /** The my default pos2. */
+
+   /** The default right lower corner. */
    private Vec2 myDefaultPos2;
-   
-   /** The my pos1. */
+
+   /** The left upper corner. */
    private Vec2 myPos1;
-   
-   /** The my pos2. */
+
+   /** The right lower corner. */
    private Vec2 myPos2;
 
    /**
@@ -55,13 +55,20 @@ public class Camera {
    }
 
    /**
-    * Reset.
+    * Put image size and perspective to default.
     */
    // put image size and perspective to default
    public void reset() {
+      resetPerspective();
+      setImageSize(myGamePanel.getGameWidth(), myGamePanel.getGameHeight());
+   }
+
+   /**
+    * Reset image perspective
+    */
+   public void resetPerspective() {
       myPos1 = myDefaultPos1.copy();
       myPos2 = myDefaultPos2.copy();
-      setImageSize(myGamePanel.getGameWidth(), myGamePanel.getGameHeight());
    }
 
    /**
@@ -83,7 +90,7 @@ public class Camera {
       pos1.divideY(myGamePanel.getGameHeight() / (double) myGamePanel.getHeight());
       return pos1;
    }
-   
+
    /**
     * Gets the scaled pos2.
     *
@@ -103,7 +110,7 @@ public class Camera {
     * @return the pos1
     */
    public Vec2 getPos1() { return myPos1; }
-   
+
    /**
     * Gets the pos2.
     *
@@ -117,7 +124,7 @@ public class Camera {
     * @param pos1 the new pos1
     */
    public void setPos1(Vec2 pos1) { myPos1 = pos1; }
-   
+
    /**
     * Sets the pos2.
     *
@@ -131,7 +138,7 @@ public class Camera {
     * @return the pen
     */
    public Graphics getPen() { return myPen; }
-   
+
    /**
     * Sets the pen.
     *
@@ -162,7 +169,7 @@ public class Camera {
       pen2D.setRenderingHint(RenderingHints.KEY_RENDERING, RenderingHints.VALUE_RENDER_QUALITY);
       pen2D.setRenderingHint(RenderingHints.KEY_FRACTIONALMETRICS, RenderingHints.VALUE_FRACTIONALMETRICS_ON);
    }
-   
+
    /**
     * Sets the perspective.
     *

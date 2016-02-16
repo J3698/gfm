@@ -16,7 +16,7 @@ import gfm.util.EventUtil;
  * The Class ListenerManager.
  */
 public class ListenerManager {
-   
+
    /** The my game panel. */
    private GamePanel myGamePanel;
 
@@ -51,7 +51,7 @@ public class ListenerManager {
     * @see KeyEvent
     */
    public class KeyListener extends KeyAdapter {
-      
+
       /* (non-Javadoc)
        * @see java.awt.event.KeyAdapter#keyPressed(java.awt.event.KeyEvent)
        */
@@ -73,7 +73,7 @@ public class ListenerManager {
          }
          myGamePanel.getGameStateManager().getCurrentGameState().keyReleased(event);
       }
-      
+
       /* (non-Javadoc)
        * @see java.awt.event.KeyAdapter#keyTyped(java.awt.event.KeyEvent)
        */
@@ -85,7 +85,7 @@ public class ListenerManager {
          myGamePanel.getGameStateManager().getCurrentGameState().keyTyped(event);
       }
    }
-   
+
    /**
     * The listener interface for receiving mouse events.
     * The class that is interested in processing a mouse
@@ -98,7 +98,7 @@ public class ListenerManager {
     * @see MouseEvent
     */
    public class MouseListener extends MouseAdapter {
-      
+
       /* (non-Javadoc)
        * @see java.awt.event.MouseAdapter#mouseClicked(java.awt.event.MouseEvent)
        */
@@ -110,7 +110,7 @@ public class ListenerManager {
          }
          myGamePanel.getGameStateManager().getCurrentGameState().mouseClicked(event);
       }
-      
+
       /* (non-Javadoc)
        * @see java.awt.event.MouseAdapter#mouseDragged(java.awt.event.MouseEvent)
        */
@@ -122,7 +122,7 @@ public class ListenerManager {
          }
          myGamePanel.getGameStateManager().getCurrentGameState().mouseDragged(event);
       }
-      
+
       /* (non-Javadoc)
        * @see java.awt.event.MouseAdapter#mouseEntered(java.awt.event.MouseEvent)
        */
@@ -134,7 +134,7 @@ public class ListenerManager {
          }
          myGamePanel.getGameStateManager().getCurrentGameState().mouseEntered(event);
       }
-      
+
       /* (non-Javadoc)
        * @see java.awt.event.MouseAdapter#mouseExited(java.awt.event.MouseEvent)
        */
@@ -146,7 +146,7 @@ public class ListenerManager {
          }
          myGamePanel.getGameStateManager().getCurrentGameState().mouseExited(event);
       }
-      
+
       /* (non-Javadoc)
        * @see java.awt.event.MouseAdapter#mouseMoved(java.awt.event.MouseEvent)
        */
@@ -158,7 +158,7 @@ public class ListenerManager {
          }
          myGamePanel.getGameStateManager().getCurrentGameState().mouseMoved(event);
       }
-      
+
       /* (non-Javadoc)
        * @see java.awt.event.MouseAdapter#mousePressed(java.awt.event.MouseEvent)
        */
@@ -170,7 +170,7 @@ public class ListenerManager {
          }
          myGamePanel.getGameStateManager().getCurrentGameState().mousePressed(event);
       }
-      
+
       /* (non-Javadoc)
        * @see java.awt.event.MouseAdapter#mouseReleased(java.awt.event.MouseEvent)
        */
@@ -182,7 +182,7 @@ public class ListenerManager {
          }
          myGamePanel.getGameStateManager().getCurrentGameState().mouseReleased(event);
       }
-      
+
       /* (non-Javadoc)
        * @see java.awt.event.MouseAdapter#mouseWheelMoved(java.awt.event.MouseWheelEvent)
        */
@@ -195,7 +195,7 @@ public class ListenerManager {
          myGamePanel.getGameStateManager().getCurrentGameState().mouseWheelMoved(event);
       }
    }
-   
+
    /**
     * The listener interface for receiving focus events.
     * The class that is interested in processing a focus
@@ -208,7 +208,7 @@ public class ListenerManager {
     * @see FocusEvent
     */
    private class FocusListener extends FocusAdapter {
-      
+
       /* (non-Javadoc)
        * @see java.awt.event.FocusAdapter#focusLost(java.awt.event.FocusEvent)
        */
