@@ -149,3 +149,13 @@ Temporary Items
 /PlayGround$AddGameStateListener.class
 /PlayGround$AddMainListener.class
 /PlayGround.class
+/ListenerManager$FocusListener.class
+/ListenerManager$KeyListener.class
+/ListenerManager$MouseListener.class
+/ListenerManager.class
+/Macro.class
+/Main.class
+/MouseListener.class
+/PlayGround$AddGameStateListener.class
+/PlayGround$AddMainListener.class
+/PlayGround.class
