@@ -12,11 +12,11 @@ import gfm.util.Vec2;
  */
 public abstract class Particle {
 
-   /** The my particle position. */
-   private Vec2 myParticlePosition;
+   /** The particles position. */
+   private Vec2 myPosition;
 
-   /** The my particle velocity. */
-   private Vec2 myParticleVelocity;
+   /** The particles velocity. */
+   private Vec2 myVelocity;
 
    /** The my life. */
    private int myLife = 255;
@@ -27,12 +27,12 @@ public abstract class Particle {
    /**
     * Instantiates a new particle.
     *
-    * @param position the position
-    * @param velocity the velocity
+    * @param position the particles position
+    * @param velocity the particles velocity
     */
    public Particle(Vec2 position, Vec2 velocity) {
-      myParticlePosition = position;
-      myParticleVelocity = velocity;
+      myPosition = position;
+      myVelocity = velocity;
    }
 
    /**
@@ -136,28 +136,28 @@ public abstract class Particle {
     *
     * @return the position
     */
-   public Vec2 getPosition() { return myParticlePosition; }
+   public Vec2 getPosition() { return myPosition; }
 
    /**
     * Sets the position.
     *
     * @param position the new position
     */
-   public void setPosition(Vec2 position) { myParticlePosition = position; }
+   public void setPosition(Vec2 position) { myPosition = position; }
 
    /**
     * Gets the velocity.
     *
     * @return the velocity
     */
-   public Vec2 getVelocity() { return myParticleVelocity; }
+   public Vec2 getVelocity() { return myVelocity; }
 
    /**
     * Sets the velocity.
     *
     * @param velocity the new velocity
     */
-   public void setVelocity(Vec2 velocity) { myParticleVelocity = velocity; }
+   public void setVelocity(Vec2 velocity) { myVelocity = velocity; }
 
    /**
     * Sets the color.

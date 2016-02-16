@@ -1,7 +1,8 @@
 package gfm.particlesys;
 
 import java.awt.Graphics;
-import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.Iterator;
 import java.util.Random;
 
 import gfm.util.Vec2;
@@ -13,7 +14,7 @@ import gfm.util.Vec2;
 public class ParticleSystem {
 
    /** The my particles. */
-   private ArrayList<Particle> myParticles;
+   private LinkedList<Particle> myParticles;
 
    /** The my source position. */
    private Vec2 mySourcePosition;
@@ -57,25 +58,24 @@ public class ParticleSystem {
       myFertility = fertility;
       myLowerAngleLimit = lowerAngleLimit;
       myUpperAngleLimit = upperAngleLimit;
-      myParticles = new ArrayList<Particle>();
+      myParticles = new LinkedList<Particle>();
    }
 
    /**
     * Update.
     */
    public void update() {
-      Particle temp;
-      for ( int i = 0; i < myParticles.size(); i++ ) {
-         temp = myParticles.get(i);
-         if ( temp.isDead() ) {
-            myParticles.remove(temp);
+      for ( Iterator<Particle> iter = myParticles.iterator(); iter.HasNext(); ) {
+         Particle particle = iter.next();
+         if ( particle.isDead() ) {
+            iter.remove(temp);
          } else {
-            temp.update();
+            particle.update();
          }
       }
 
       if ( myFertility != 0 ) {
-         for ( int i = 0; i < myEmissionRate; i++ ) {
+         for ( int i = 0; i < Math.floor(myEmissionRate); i++ ) {
             createParticles();
          }
 
@@ -89,7 +89,7 @@ public class ParticleSystem {
    }
 
    /**
-    * Draw.
+    * Draw each particle.
     *
     * @param pen the pen
     */
@@ -100,13 +100,13 @@ public class ParticleSystem {
    }
 
    /**
-    * Creates the particles.
+    * Creates a particle.
     */
    private void createParticles() {
       Vec2 position = mySourcePosition.copy();
       if ( myMaxSourceOffset != null ) {
-         double xLowerLim = -(myMaxSourceOffset.getX() / 2);
-         double yLowerLim = -(myMaxSourceOffset.getY() / 2);
+         double xLowerLim = -myMaxSourceOffset.getX() / 2;
+         double yLowerLim = -myMaxSourceOffset.getY() / 2;
          double xUpperLim = myMaxSourceOffset.getX() / 2;
          double yUpperLim = myMaxSourceOffset.getY() / 2;
          position.addVector(Vec2.randSquareVector(xLowerLim, yLowerLim, xUpperLim, yUpperLim));
