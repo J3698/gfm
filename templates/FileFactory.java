@@ -11,14 +11,14 @@ import javax.swing.JOptionPane;
 
 // TODO: Auto-generated Javadoc
 /**
- * A factory for creating File objects.
+ * A factory for creating files from templates.
  */
 public class FileFactory {
    
    /**
-    * New main.
+    * Create a new main class.
     *
-    * @param name the name
+    * @param name the new class name.
     * @return true, if successful
     */
    public static boolean newMain(String name) {
@@ -28,7 +28,7 @@ public class FileFactory {
    /**
     * New game state.
     *
-    * @param name the name
+    * @param name the new class name.
     * @return true, if successful
     */
    public static boolean newGameState(String name) {
