@@ -10,13 +10,15 @@ import gfm.GamePanel;
 import gfm.Game;
 
 public class CLASSNAME {
-   // draw space, different from space taken up on screen
-   public static int gameWidth = 640;
-   public static int gameHeight = 480;
+   public static final int gameWidth = 640;
+   public static final int gameHeight = 480;
+
+   public static final int drawWidth = (int)  (1.2 * gameWidth);
+   public static final int drawHeight = (int) (1.2 * gameHeight);
 
    public static void main(String[] args) {
-      Game game = new Game(" CLASSNAME ", gameWidth, gameHeight);
-      game.getGamePanel().getGameStateManager().setGameState("");
+      Game game = new Game(" CLASSNAME ", gameWidth, gameHeight, drawWidth, drawHeight);
+      game.setGameState("");
       game.start();
    }
 }
