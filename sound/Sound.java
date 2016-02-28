@@ -2,6 +2,7 @@ package gfm.sound;
 
 import java.io.IOException;
 import java.net.URL;
+import java.applet.AudioClip;
 
 import javax.sound.sampled.AudioFormat;
 import javax.sound.sampled.AudioInputStream;
@@ -18,7 +19,7 @@ import javax.sound.sampled.UnsupportedAudioFileException;
 /**
  * The Class Sound.
  */
-public class Sound {
+public class Sound implements AudioClip {
    
    /** The my enabled. */
    private static boolean myEnabled = true;
