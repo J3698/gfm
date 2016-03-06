@@ -1,8 +1,8 @@
 package gfm.particlesys;
 
 import java.awt.Graphics;
-import java.util.LinkedList;
 import java.util.Iterator;
+import java.util.LinkedList;
 import java.util.Random;
 
 import gfm.util.Vec2;
@@ -65,10 +65,10 @@ public class ParticleSystem {
     * Update.
     */
    public void update() {
-      for ( Iterator<Particle> iter = myParticles.iterator(); iter.HasNext(); ) {
+      for ( Iterator<Particle> iter = myParticles.iterator(); iter.hasNext(); ) {
          Particle particle = iter.next();
          if ( particle.isDead() ) {
-            iter.remove(temp);
+            iter.remove();
          } else {
             particle.update();
          }
