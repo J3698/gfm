@@ -23,7 +23,9 @@ import gfm.util.Vec2;
 
 // TODO: Auto-generated Javadoc
 /**
- * The Class Main.
+ * The Main Class. This is used
+ * to generate shell codes, such
+ * as an empty game state.
  */
 public class Main {
    
@@ -49,18 +51,18 @@ public class Main {
             drawWidth, drawHeight);
 
       game.setGameState("templates");
-      game.addGameState(new PlayGround(game, "templates"));
+      game.addGameState(new TemplateMaker(game, "templates"));
 
       game.start();
    }
 }
 
-class PlayGround extends GameState {
+class TemplateMaker extends GameStateAdapter {
 
-   public PlayGround(Game game) {
+   public TemplateMaker(Game game) {
       super(game);
    }
-   public PlayGround (Game game, String gameMode) {
+   public TemplateMaker(Game game, String gameMode) {
       super(game, gameMode);
    }
 
@@ -114,39 +116,11 @@ class PlayGround extends GameState {
    }
 
    @Override
-   public void keyPressed(KeyEvent event) {
-   }
-   @Override
-   public void keyReleased(KeyEvent event) {
-   }
-   @Override
-   public void keyTyped(KeyEvent event) {
-   }
-
-   @Override
    public void mouseClicked(MouseEvent event) {
       getGUIManager().mousePressed(event);
    }
    @Override
-   public void mouseDragged(MouseEvent event) {
-   }
-   @Override
-   public void mouseEntered(MouseEvent event) {
-   }
-   @Override
-   public void mouseExited(MouseEvent event) {
-   }
-   @Override
    public void mouseMoved(MouseEvent event) {
       getGUIManager().mouseMoved(event);
-   }
-   @Override
-   public void mousePressed(MouseEvent event) {
-   }
-   @Override
-   public void mouseReleased(MouseEvent event) {
-   }
-   @Override
-   public void mouseWheelMoved(MouseWheelEvent event) {
    }
 }
