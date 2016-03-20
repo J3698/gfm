@@ -23,12 +23,7 @@ class ImageManager {
    }
 
    public boolean addImage(String path, String name) {
-      // load image
-      URL url = getClass().getResource(path);
-      if ( url == null ) {
-         return false;
-      }
-      ImageIcon icon = new ImageIcon(url);
+      ImageIcon icon = new ImageIcon(path);
       // get load status
       int status = 0;
       do {
