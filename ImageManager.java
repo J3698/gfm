@@ -1,20 +1,13 @@
-package gfm;
-
 import java.util.HashMap;
 import java.util.Collection;
 import java.net.URL;
 import java.awt.Image;
+import java.awt.MediaTracker;
 
 import javax.swing.ImageIcon;
 
 class ImageManager {
    private static ImageManager mySingleton;
-   public static ImageManager getSingleton() {
-      if ( mySingleton == null ) {
-         mySingleton = new ImageManager();
-      }
-      return mySingleton;
-   }
 
    private HashMap<String, Image> myImages;
 
@@ -26,19 +19,27 @@ class ImageManager {
    }
 
    public boolean addImage(String path) {
+      return addImage(path, path);
+   }
+
+   public boolean addImage(String path, String name) {
+      // load image
       URL url = getClass().getResource(path);
       if ( url == null ) {
          return false;
       }
-
-
       ImageIcon icon = new ImageIcon(url);
-      // fix errors if URL is wrong - up to
-      // here, we know that URL is not null, thus it exists
-   }
-
-   public boolean addImage(String path, String name) {
-      
+      // get load status
+      int status = 0;
+      do {
+         status = icon.getImageLoadStatus();
+      } while ( status == MediaTracker.LOADING );
+      // add if loaded correctly
+      if ( status == MediaTracker.COMPLETE ) {
+         myImages.put(name, icon.getImage());
+         return true;
+      }
+      return false;
    }
 
    public Image getImage(String name) {
@@ -53,5 +54,12 @@ class ImageManager {
    }
    public Collection<Image> getImages() {
       return myImages.values();
+   }
+
+   public static ImageManager getSingleton() {
+      if ( mySingleton == null ) {
+         mySingleton = new ImageManager();
+      }
+      return mySingleton;
    }
 }
