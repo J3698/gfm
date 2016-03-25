@@ -16,6 +16,7 @@ import javax.swing.JOptionPane;
  */
 
 import gfm.gamestate.GameState;
+import gfm.gamestate.GameStateAdapter;
 import gfm.gui.Button;
 import gfm.gui.MenuButton;
 import gfm.templates.FileFactory;
