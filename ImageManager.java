@@ -18,11 +18,11 @@ class ImageManager {
       myImages = new HashMap<String, Image>();
    }
 
-   public boolean addImage(String path) {
-      return addImage(path, path);
+   public boolean add(String path) {
+      return add(path, path);
    }
 
-   public boolean addImage(String path, String name) {
+   public boolean add(String path, String name) {
       ImageIcon icon = new ImageIcon(path);
       // get load status
       int status = 0;
@@ -35,6 +35,16 @@ class ImageManager {
          return true;
       }
       return false;
+   }
+
+   public Image getImageLazy(String name) {
+      Image img = getImage(name);
+      if ( img != null ) {
+         return img;
+      } else {
+         add(name);
+         return getImage(name);
+      }
    }
 
    public Image getImage(String name) {
