@@ -3,9 +3,7 @@ package gfm;
 import java.awt.Graphics;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.KeyEvent;
 import java.awt.event.MouseEvent;
-import java.awt.event.MouseWheelEvent;
 
 import javax.swing.JOptionPane;
 
@@ -15,30 +13,28 @@ import javax.swing.JOptionPane;
  * @author Antioch John Sanders
  */
 
-import gfm.gamestate.GameState;
 import gfm.gamestate.GameStateAdapter;
 import gfm.gui.Button;
 import gfm.gui.MenuButton;
 import gfm.templates.FileFactory;
 import gfm.util.Vec2;
 
-// TODO: Auto-generated Javadoc
 /**
  * The Main Class. This is used
  * to generate shell codes, such
  * as an empty game state.
  */
 public class Main {
-   
+
    /** The game width. */
    public static int gameWidth = 640;
-   
+
    /** The game height. */
    public static int gameHeight = 480;
-   
+
    /** The draw width. */
    public static int drawWidth = (int) (1.2 * gameWidth);
-   
+
    /** The draw height. */
    public static int drawHeight = (int) (1.2 * gameHeight);
 
