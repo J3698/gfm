@@ -1,8 +1,9 @@
-import java.util.HashMap;
-import java.util.Collection;
-import java.net.URL;
+package gfm;
+
 import java.awt.Image;
 import java.awt.MediaTracker;
+import java.util.Collection;
+import java.util.HashMap;
 
 import javax.swing.ImageIcon;
 
