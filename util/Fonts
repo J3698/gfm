@@ -1,0 +1,14 @@
+public class Fonts {
+   public static boolean loadTrueTypeFont(File path) {
+      Font font = Font.createFont(Font.TRUETYPE_FONT, path);
+      font = font.deriveFont(Font.PLAIN, 14);
+      GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
+      for (String str : ge.getAvailableFontFamilyNames()) {
+         if (str.equals(font.getFamily())) {
+            return false;
+         }
+      }
+      ge.registerFont(font);
+      return true;
+   }
+}
